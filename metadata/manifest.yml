@@ -1,0 +1,54 @@
+---
+Name: nodejs
+Description: Custom Node.js cartridge auto-updating to the latest stable version on each build.
+Version: '0.10.33'
+License: Node.js License
+License-Url: https://raw.github.com/joyent/node/v0.10/LICENSE
+Vendor: www.nodejs.org
+Website: http://www.nodejs.org/
+Display-Name: Node.js Self-Updating
+Cartridge-Short-Name: NODEJS
+Cartridge-Version: '1.0.0'
+Cartridge-Vendor: icflorescu
+Categories:
+- service
+- javascript
+- nodejs
+- web_framework
+Help-Topics:
+  Node.js Manual & Documentation: http://nodejs.org/api/
+Provides:
+- nodejs
+
+Scaling:
+  Min: 1
+  Max: -1
+
+Publishes:
+  get-doc-root:
+    Type: FILESYSTEM:doc-root
+
+Subscribes:
+  set-env:
+    Type: ENV:*
+    Required: false
+
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: PORT
+  Private-Port: 8080
+  Public-Port-Name: PROXY_PORT
+  Protocols:
+  - http
+  - ws
+  Options:
+    primary: true
+  Mappings:
+  - Frontend: ''
+    Backend: ''
+    Options:
+      websocket: true
+  - Frontend: /health
+    Backend: /health
+    Options:
+      health: true

@@ -1,0 +1,105 @@
+#!/bin/bash
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+source $HOME/nodejs/lib/util
+
+function is_running() {
+  if [ -z "$(ps -ef | grep 'node start.js' | grep -v grep)" ]; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+function pre-repo-archive() {
+  if [ -d ${TMP}.node_modules ]; then
+    mv -f ${OPENSHIFT_REPO_DIR}.node_modules ${TMP}
+  fi
+}
+
+function build() {
+  update_nodejs
+  local INIT_DIR=`pwd`
+  cd ${OPENSHIFT_REPO_DIR}
+  if [ -d ${TMP}.node_modules ]; then
+    mv -f ${TMP}.node_modules ./
+  fi
+  npm prune
+  npm i
+  cd ${INIT_DIR}
+  client_result 'Node.js modules installed.'
+}
+
+function start() {
+  local INIT_DIR=`pwd`
+  cd ${OPENSHIFT_REPO_DIR}
+  if is_running; then
+    client_result 'Application is already running.'
+  else
+    client_message 'Starting Node.js application...'
+    nohup node start.js |& /usr/bin/logshifter -tag nodejs &
+    i=0
+    while ! is_running && [ $i -lt 60 ]; do
+      sleep 1
+      i=$(($i + 1))
+    done
+    if is_running; then
+      client_result 'Node.js application started.'
+    else
+      client_result 'Warning! Could not start Node.js application!'
+      exit 1
+    fi
+  fi
+  cd ${INIT_DIR}
+}
+
+function stop() {
+  if ! is_running; then
+    client_result 'Application is already stopped.'
+  else
+    client_message 'Stopping Node.js application...'
+    kill $(ps -ef | grep 'node start.js' | grep -v grep | awk '{ print $2 }') > /dev/null 2>&1
+    i=0
+    while is_running && [ $i -lt 60 ]; do
+      sleep 1
+      i=$(($i + 1))
+    done
+    if is_running; then
+      client_result 'Warning! Could not stop Node.js application!'
+      exit 1
+    else
+      client_result 'Node.js application stopped.'
+    fi
+  fi
+}
+
+function restart() {
+  stop
+  start
+}
+
+function status() {
+  if is_running; then
+    client_result 'Node.js application appears to be running.'
+  else
+    client_result 'Node.js application appears to be stopped.'
+  fi
+}
+
+function tidy() {
+  shopt -s dotglob
+  client_message "Emptying logs in ${OPENSHIFT_LOG_DIR}..."
+  rm -rf ${OPENSHIFT_LOG_DIR}/*.log*
+  client_message 'Done.'
+}
+
+case ${1} in
+  pre-repo-archive) pre-repo-archive ;;
+  build)            build            ;;
+  start)            start            ;;
+  stop)             stop             ;;
+  restart)          restart          ;;
+  status)           status           ;;
+  tidy)             tidy             ;;
+  *)                exit 0
+esac

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+function update_nodejs {
+  local LATEST="v$(curl https://semver.io/node/stable)"
+
+  # Update Node.js if necessary
+  if [ $(node --version) != ${LATEST} ]; then
+    # Download
+    curl -L -o ${OPENSHIFT_DATA_DIR}tmp.tgz http://nodejs.org/dist/${LATEST}/node-${LATEST}-linux-x64.tar.gz
+
+    # Remove old files
+    rm -rf ${OPENSHIFT_DATA_DIR}.nodejs
+
+    # Copy binaries
+    mkdir ${OPENSHIFT_DATA_DIR}.nodejs
+    tar -xvzf ${OPENSHIFT_DATA_DIR}tmp.tgz --strip-components=1 -C ${OPENSHIFT_DATA_DIR}.nodejs
+
+    # Remove downloaded archive
+    rm ${OPENSHIFT_DATA_DIR}tmp.tgz
+
+    # Output result
+    echo "Node.js updated to $(node --version) with npm $(npm --version)."
+  fi
+
+  # Update global npm if necessary
+  if [ $(npm view npm version) != $(npm --version) ]; then
+    npm i -g npm
+    echo "Npm updated to $(npm --version)."
+  fi
+}
