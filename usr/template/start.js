@@ -22,16 +22,15 @@ if (cluster.isMaster) {
   for (i = 0; i < (env.NODE_CLUSTER_WORKERS || 4); i++) {
     cluster.fork();
   }
+  if (env.NODE_ENV == 'production') {
+    stopSignals.forEach(function(signal) {
+      process.on(signal, function() {
+        console.log('Got %s, stopping workers...', signal);
+        stopping = true;
+        cluster.disconnect();
+      });
+    });
+  }
 } else {
   require('./app.js');
-}
-
-if (env.NODE_ENV == 'production') {
-  stopSignals.forEach(function(signal) {
-    process.on(signal, function() {
-      console.log('Got %s, stopping workers...', signal);
-      stopping = true;
-      cluster.disconnect();
-    });
-  });
 }
