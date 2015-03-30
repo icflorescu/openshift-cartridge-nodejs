@@ -5,7 +5,6 @@ source $HOME/nodejs/lib/util
 
 # Add environment variables
 echo production                                > env/NODE_ENV
-echo 2                                         > env/NODE_CLUSTER_WORKERS
 echo ${OPENSHIFT_NODEJS_IP}                    > env/NODE_IP
 echo ${OPENSHIFT_NODEJS_PORT}                  > env/NODE_PORT
 echo ${OPENSHIFT_DATA_DIR}                     > env/DATA_DIR
