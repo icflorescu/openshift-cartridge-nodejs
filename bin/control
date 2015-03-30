@@ -4,10 +4,10 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 source $HOME/nodejs/lib/util
 
 function is_running() {
-  if [ ! -z "$(ps -ef | grep 'node --harmony start.js' | grep -v grep)" ]; then
-    return 1
-  else
+  if [ -z "$(ps -ef | grep 'node --harmony start.js' | grep -v grep)" ]; then
     return 0
+  else
+    return 1
   fi
 }
 
