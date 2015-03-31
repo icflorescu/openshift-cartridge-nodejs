@@ -12,8 +12,8 @@ function is_running() {
 }
 
 function pre-repo-archive() {
-  if [ -d ${OPENSHIFT_REPO_DIR}.node_modules ]; then
-    mv -f ${OPENSHIFT_REPO_DIR}.node_modules ${TMP}
+  if [ -d ${OPENSHIFT_REPO_DIR}node_modules ]; then
+    mv -f ${OPENSHIFT_REPO_DIR}node_modules ${TMP}
   fi
 }
 
@@ -21,8 +21,9 @@ function build() {
   update_nodejs
   local INIT_DIR=`pwd`
   cd ${OPENSHIFT_REPO_DIR}
-  if [ -d ${TMP}.node_modules ]; then
-    mv -f ${TMP}.node_modules ./
+  if [ -d ${TMP}node_modules ]; then
+    mv -f ${TMP}node_modules ./
+    rm -rf ${TMP}node_modules
   fi
   npm prune
   npm i
