@@ -23,7 +23,6 @@ function build() {
   cd ${OPENSHIFT_REPO_DIR}
   if [ -d ${TMP}node_modules ]; then
     mv -f ${TMP}node_modules ./
-    rm -rf ${TMP}node_modules
   fi
   npm prune
   npm i
