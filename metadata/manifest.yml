@@ -1,7 +1,7 @@
 ---
 Name: nodejs
 Description: Custom Node.js cartridge auto-updating to the latest stable version on each build.
-Version: '0.12.2'
+Version: '0.12.3'
 License: Node.js License
 License-Url: https://raw.github.com/joyent/node/v0.12/LICENSE
 Vendor: www.nodejs.org
