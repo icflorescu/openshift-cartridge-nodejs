@@ -1,3 +1,5 @@
+[![Project Status](https://stillmaintained.com/icflorescu/openshift-cartridge-nodejs.png)](https://stillmaintained.com/icflorescu/openshift-cartridge-nodejs)
+
 # Custom Node.js application cartridge for OpenShift
 
 This is a custom Node.js cartridge that **takes care of auto-updating to the latest stable Node.js and NPM versions** on each build.
