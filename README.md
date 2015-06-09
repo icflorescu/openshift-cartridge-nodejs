@@ -1,4 +1,4 @@
-# Custom Node.js application cartridge for OpenShift
+# Custom Node.js cartridge for OpenShift
 
 This is a custom Node.js cartridge that **takes care of auto-updating to the latest stable Node.js and NPM versions** on each build.
 
