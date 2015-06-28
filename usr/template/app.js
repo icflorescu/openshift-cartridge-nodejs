@@ -2,7 +2,7 @@ var http = require('http'),
     env  = process.env,
     server = http.createServer(function(req, res) {
       res.writeHead(200);
-      res.end('Process ' + process.pid + ' says hi!');
+      res.end('Process ' + process.pid + ' says hi (node ' + process.version + ')!');
     });
 
 server.listen(

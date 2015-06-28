@@ -1,6 +1,6 @@
 # Custom Node.js cartridge for OpenShift
 
-This is a custom Node.js cartridge that **takes care of auto-updating to the latest stable Node.js and NPM versions** on each build.
+This is a custom Node.js cartridge that **takes care of auto-updating to the latest Node.js and NPM versions** on each build. By default, the node version is determined by querying https://semver.io/node/stable. A different URL can be specified in your application's repository, in the `.openshift/NODE_VERSION_URL` file.
 
 ## Why
 
