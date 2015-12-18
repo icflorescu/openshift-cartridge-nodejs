@@ -4,7 +4,7 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 source $HOME/nodejs/lib/util
 
 function is_running() {
-  if [ ! -z "$(ps -ef | grep 'node start.js' | grep -v grep)" ]; then
+  if [ ! -z "$(ps -ef | grep 'npm start' | grep -v grep)" ]; then
     return 0
   else
     return 1
@@ -37,7 +37,7 @@ function start() {
     client_result 'Application is already running.'
   else
     client_message 'Starting Node.js application...'
-    nohup node start.js |& /usr/bin/logshifter -tag nodejs &
+    nohup npm start |& /usr/bin/logshifter -tag nodejs &
     i=0
     while ! is_running && [ $i -lt 60 ]; do
       sleep 1
@@ -58,7 +58,7 @@ function stop() {
     client_result 'Application is already stopped.'
   else
     client_message 'Stopping Node.js application...'
-    kill $(ps -ef | grep 'node start.js' | grep -v grep | awk '{ print $2 }') > /dev/null 2>&1
+    kill $(ps -ef | grep 'npm start' | grep -v grep | awk '{ print $2 }') > /dev/null 2>&1
     i=0
     while is_running && [ $i -lt 60 ]; do
       sleep 1
