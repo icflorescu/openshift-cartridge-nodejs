@@ -1,0 +1,66 @@
+body {
+  font: 20px/1.5 'Roboto', sans-serif;
+  color: #F0E7D5;
+  background: #555 url('asphalt.png');
+  text-align: center;
+}
+
+header, footer {
+  font-size: 14px;
+}
+
+header > p {
+  margin: 2px;
+}
+
+a:link, a:visited {
+  color: #78B642;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.fork {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .fork {
+    display: none;
+  }
+}
+
+.logo {
+  width: 50%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px dashed #555;
+}
+
+hr {
+  height: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #666;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #222;
+    box-shadow: 0 0 1px #000 inset;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #444;
+    box-shadow: 0 0 6px #000 inset;
+}

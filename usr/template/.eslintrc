@@ -1,0 +1,5 @@
+parser: babel-eslint
+rules:
+  quotes:
+    - 1
+    - single
