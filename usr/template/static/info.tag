@@ -1,17 +1,16 @@
 <info>
   <item each={ items }>{ name }: { value }</item>
+
   <style>
     info {
       display: block;
       max-width: 700px;
-      margin: auto;
+      margin: 10px auto;
       font-family: 'Ubuntu Mono', monospace;
-      border-radius: 4px;
+      border-radius: 10px;
       background: #1D1F21;
-      box-shadow: 0 0 10px rgba(0, 0, 0 , 0.8) inset;
-      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .8) inset;
       overflow-x: auto;
-      margin-bottom: 10px;
     }
 
     info > item {
@@ -19,7 +18,7 @@
       white-space: nowrap;
       overflow-x: visible;
       border-top: 1px dashed #333;
-      margin-top: 6px;
+      padding: 4px 10px;
     }
 
     info > item:first-child {
@@ -28,8 +27,8 @@
     }
 
   </style>
-  <script>
 
+  <script>
     var tag = this
 
     tag.items = [{
@@ -54,6 +53,6 @@
         setInterval(load, 3000)
       }
     })
-
   </script>
+
 </info>

@@ -3,22 +3,32 @@ body {
   color: #F0E7D5;
   background: #555 url('asphalt.png');
   text-align: center;
+  margin: 0;
 }
 
 header, footer {
   font-size: 14px;
+  padding: 0 20px;
 }
 
 header {
-  margin: 30px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+  margin: 30px 0 0;
 }
 
 header > p {
   margin: 2px;
 }
 
+main {
+  padding: 10px 20px;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #000;
+}
+
 footer {
-  margin: 30px 0 0;
+  border-top: 1px solid #666;
 }
 
 a:link, a:visited {
@@ -37,12 +47,6 @@ a:hover {
   border: 0;
 }
 
-@media screen and (max-width: 480px) {
-  .fork {
-    display: none;
-  }
-}
-
 .logo {
   width: 50%;
   max-width: 400px;
@@ -51,11 +55,7 @@ a:hover {
   border: 1px dashed #555;
 }
 
-hr {
-  height: 0;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #666;
-}
+/* Customize scrollbars in webkit */
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -71,4 +71,15 @@ hr {
 ::-webkit-scrollbar-track {
     background-color: #444;
     box-shadow: 0 0 6px #000 inset;
+}
+
+/* Play nice with small devices */
+
+@media screen and (max-width: 480px) {
+  .fork {
+    display: none;
+  }
+  main {
+    text-align: left;
+  }
 }

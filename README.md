@@ -49,6 +49,12 @@ Go to [Choose a type of application](https://openshift.redhat.com/app/console/ap
 
 Since you're here, chances are you might also be interested in this [custom MongoDB cartridge](https://github.com/icflorescu/openshift-cartridge-mongodb).
 
+## Credits
+
+See contributors [here](https://github.com/icflorescu/openshift-cartridge-nodejs/graphs/contributors).
+
+If you find this repo useful, don't hesitate to give it a star and [spread the word](http://twitter.com/share?text=Checkout%20this%20custom%20Node.js%20cartridge%20for%20OpenShift!&amp;url=http%3A%2F%2Fgithub.com/icflorescu/openshift-cartridge-nodejs&amp;hashtags=javascript,nodejs,openshift&amp;via=icflorescu).
+
 ## License
 
 The [MIT License](http://github.com/icflorescu/openshift-cartridge-nodejs/LICENSE).
