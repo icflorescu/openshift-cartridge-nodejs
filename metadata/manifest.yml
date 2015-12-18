@@ -3,7 +3,6 @@ Description: Custom Node.js cartridge auto-updating to the latest stable version
 Version: '5.1.1'
 License: Node.js License
 License-Url: https://raw.githubusercontent.com/nodejs/node/master/LICENSE
-Source-Url: https://github.com/icflorescu/openshift-cartridge-nodejs.git
 Vendor: www.nodejs.org
 Website: http://www.nodejs.org/
 Display-Name: Node.js Auto-Updating
