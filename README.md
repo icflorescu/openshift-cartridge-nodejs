@@ -32,7 +32,7 @@ Go to [Choose a type of application](https://openshift.redhat.com/app/console/ap
 
 - Can't guarantee this cartridge is production-ready. Some people use it though (on **their own responsibility**).
 - This is a lean cartridge. No unnecessary modules are installed. Which means that - unlike the standard Node.js cartridge - it won't install [supervisor](https://github.com/isaacs/node-supervisor) for you. You'll have to implement your own logic to auto-restart on errors. The [provided application template](https://github.com/icflorescu/openshift-cartridge-nodejs/blob/master/usr/template/start.js) is using [cluster](http://nodejs.org/api/cluster.html) for that.
-- The cartridge will run `node start.js` on start, so **make sure your application entrypoint is `start.js`**.
+- The cartridge will run `npm start` on start, so **make sure your application entrypoint is defined in your start script of your `package.json` file**. See the [`npm` docs](https://docs.npmjs.com/cli/start) for more information.
 
 ## FAQ
 
