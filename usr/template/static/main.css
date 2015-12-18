@@ -9,8 +9,16 @@ header, footer {
   font-size: 14px;
 }
 
+header {
+  margin: 30px 0;
+}
+
 header > p {
   margin: 2px;
+}
+
+footer {
+  margin: 30px 0 0;
 }
 
 a:link, a:visited {
