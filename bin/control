@@ -4,7 +4,9 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 source $HOME/nodejs/lib/util
 
 function is_running() {
-  if [ ! -z "$(ps -ef | grep 'npm start' | grep -v grep)" ]; then
+  npm install jsonfile
+  export start_command=$(node -e 'var jsonfile = require("jsonfile"); jsonfile.readFile("package.json", function(err, data) { console.log(data.scripts.start); });')
+  if [ ! -z "$(ps -ef | grep "start_command" | grep -v grep)" ]; then
     return 0
   else
     return 1
