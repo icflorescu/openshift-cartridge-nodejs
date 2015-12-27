@@ -60,7 +60,7 @@ function stop() {
     client_result 'Application is already stopped.'
   else
     client_message 'Stopping Node.js application...'
-    kill $(ps -ef | grep 'npm start' | grep -v grep | awk '{ print $2 }') > /dev/null 2>&1
+    kill $(ps -ef | grep "$start_command" | grep -v grep | awk '{ print $2 }') > /dev/null 2>&1
     i=0
     while is_running && [ $i -lt 60 ]; do
       sleep 1
