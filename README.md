@@ -16,13 +16,19 @@ Because the standard OpenShift cartridge never gets updated to the latest Node.j
 
 When you need a quick and unsofisticated solution to run your application on the latest Node.js version.
 
-## How to
+## How to (web console)
 
 Go to [Choose a type of application](https://openshift.redhat.com/app/console/application_types) in your OpenShift Online account, paste the URL below into "Code Anything" textbox at the bottom of the page, click "Next", then set your public URL and click "Create Application".
 
     http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs
 
-**Warning:** Upon cartridge initialization, the Node.js binary package is downloaded and installed, which may take a while, depending on server and network load. 2 - 3 minutes is quite often, but 5 - 10 minutes is not uncommon, especially for multi-gear setups (if you specified ).
+## How to (command line)
+
+Assuming you have `rhc` installed (see [here](https://developers.openshift.com/en/managing-client-tools.html)), run:
+
+    rhc app create -t http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs -a appname
+
+...where `appname` is the name of your application. See output of `rhc app create --help` for more info.
 
 ## Features
 
@@ -34,7 +40,8 @@ Go to [Choose a type of application](https://openshift.redhat.com/app/console/ap
 
 - Can't guarantee this cartridge is production-ready. Some people use it though (on **their own responsibility**).
 - This is a lean cartridge. No unnecessary modules are installed. Which means that - unlike the standard Node.js cartridge - it won't install [supervisor](https://github.com/isaacs/node-supervisor) for you. You'll have to implement your own logic to auto-restart on errors. The [provided application template](https://github.com/icflorescu/openshift-cartridge-nodejs/blob/master/usr/template/start.js) is using [cluster](http://nodejs.org/api/cluster.html) for that.
-- The cartridge emulates `npm start` to start your application, so **make sure your application entrypoint is defined in your start script of your `package.json` file**. See [`package.json` in the provided template](https://github.com/icflorescu/openshift-cartridge-nodejs/blob/master/usr/template/package.json) or read the [`npm` docs](https://docs.npmjs.com/cli/start) for more information.
+- The cartridge emulates the execution of `npm start` to start your application, so **make sure your application entrypoint is defined in your start script of your `package.json` file**. See [`package.json` in the provided template](https://github.com/icflorescu/openshift-cartridge-nodejs/blob/master/usr/template/package.json) or read the [`npm` docs](https://docs.npmjs.com/cli/start) for more information.
+- Upon cartridge initialization, the Node.js binary package is downloaded and installed, which **may take a while**, depending on OpenShift server and network load. 2 - 3 minutes is quite often, but 5 - 10 minutes is not uncommon, especially for scalable multi-gear setups (if you specified "Scale with web traffic").
 
 ## FAQ
 
