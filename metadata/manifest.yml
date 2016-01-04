@@ -7,7 +7,7 @@ Vendor: www.nodejs.org
 Website: http://www.nodejs.org/
 Display-Name: Node.js Auto-Updating
 Cartridge-Short-Name: NODEJS
-Cartridge-Version: '1.5.4'
+Cartridge-Version: '1.5.5'
 Cartridge-Vendor: icflorescu
 Categories:
 - service
