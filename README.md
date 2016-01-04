@@ -18,9 +18,11 @@ When you need a quick and unsofisticated solution to run your application on the
 
 ## How to
 
-Go to [Choose a type of application](https://openshift.redhat.com/app/console/application_types) in your OpenShift Online account, paste the URL below into "Code Anything" textbox at the bottom of the page and click "Next".
+Go to [Choose a type of application](https://openshift.redhat.com/app/console/application_types) in your OpenShift Online account, paste the URL below into "Code Anything" textbox at the bottom of the page, click "Next", then set your public URL and click "Create Application".
 
     http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs
+
+**Warning:** Upon cartridge initialization, the Node.js binary package is downloaded and installed, which may take a while, depending on server and network load. 2 - 3 minutes is quite often, but 5 - 10 minutes is not uncommon, especially for multi-gear setups (if you specified ).
 
 ## Features
 
