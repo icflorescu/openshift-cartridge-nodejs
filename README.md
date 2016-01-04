@@ -16,7 +16,7 @@ Because the standard OpenShift cartridge never gets updated to the latest Node.j
 
 When you need a quick and unsofisticated solution to run your application on the latest Node.js version.
 
-## How to (web console)
+## How to ([web console](https://openshift.redhat.com/app/console/applications))
 
 Go to [Choose a type of application](https://openshift.redhat.com/app/console/application_types) in your OpenShift Online account, paste the URL below into "Code Anything" textbox at the bottom of the page, click "Next", then set your public URL and click "Create Application".
 
@@ -28,7 +28,9 @@ Assuming you have `rhc` installed (see [here](https://developers.openshift.com/e
 
     rhc app create -t http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs -a appname
 
-...where `appname` is the name of your application. See output of `rhc app create --help` for more info.
+...where `appname` is the name of your application.
+
+See output of `rhc app create --help` for information on additional options.
 
 ## Features
 
