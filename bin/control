@@ -26,8 +26,8 @@ function build() {
   if [ -d ${TMP}node_modules ]; then
     mv -f ${TMP}node_modules ./
   fi
-  npm prune
-  npm i
+  npm prune --production
+  npm i --production
   cd ${INIT_DIR}
   client_result 'Node.js modules installed.'
 }
