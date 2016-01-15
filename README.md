@@ -55,9 +55,13 @@ See output of `rhc app create --help` for information on additional options.
 **A**: You're probably trying to use the URL `https://github.com/icflorescu/openshift-cartridge-nodejs` instead of
 `http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs`. A common mistake for people not paying sufficient attention while trying to use a custom cartridge for the first time.
 
+---
+
 **Q**: The latest Node.js version is 5.3.0, but the cartridge installs 5.1.1. Isn't it supposed to install the **latest**?
 
 **A**: By default, the Node.js version is determined by querying [semver.io/node/stable](https://semver.io/node/stable) (see the top of this README). For reasons which escape me, semver.io is not updating **instantly** the latest version, but **you can** force the cartridge to install it by putting, for instance, `https://semver.io/node/resolve/5.3.x` in `.openshift/NODE_VERSION_URL`.
+
+---
 
 **Q**: Sometimes, `git push` fails with:
 
