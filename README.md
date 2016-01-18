@@ -91,4 +91,4 @@ If you find this repo useful, don't hesitate to give it a star and [spread the w
 
 ## License
 
-The [MIT License](http://github.com/icflorescu/openshift-cartridge-nodejs/LICENSE).
+The [MIT License](https://github.com/icflorescu/openshift-cartridge-nodejs/blob/master/LICENSE).
