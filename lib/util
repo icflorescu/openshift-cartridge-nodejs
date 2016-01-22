@@ -37,8 +37,20 @@ function update_nodejs {
   fi
 
   # Update global npm if necessary
-  if [ $(npm view npm version) != $(npm --version) ]; then
-    npm i -g npm
+  if [ -z "$NPM_VERSION_URL" ]; then
+    if [ -f "$OPENSHIFT_REPO_DIR/.openshift/NPM_VERSION_URL" ]; then
+      local NPM_VERSION_URL=$(cat $OPENSHIFT_REPO_DIR/.openshift/NPM_VERSION_URL)
+    fi
+  fi
+
+  if [ -n "$NPM_VERSION_URL" ]; then
+    local NPM_WANTED_VERSION=$(curl --silent --max-time 5 ${NPM_VERSION_URL})
+  else
+    local NPM_WANTED_VERSION=$(npm view npm version)
+  fi
+
+  if [ $NPM_WANTED_VERSION != $(npm --version) ]; then
+    npm i -g npm@${NPM_WANTED_VERSION}
     echo "Npm updated to $(npm --version)."
   fi
 }
