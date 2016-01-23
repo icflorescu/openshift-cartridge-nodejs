@@ -18,6 +18,7 @@ function update_nodejs {
   fi
 
   # Update Node.js if necessary
+
   if [ $(node --version) != ${LATEST} ]; then
     # Download
     if ! curl -L -o ${OPENSHIFT_DATA_DIR}tmp.tgz $NODE_URL; then
@@ -39,6 +40,7 @@ function update_nodejs {
   fi
 
   # Update global npm if necessary
+
   if [ -z "$NPM_VERSION_URL" ]; then
     if [ -f "$OPENSHIFT_REPO_DIR/.openshift/NPM_VERSION_URL" ]; then
       local NPM_VERSION_URL=$(cat $OPENSHIFT_REPO_DIR/.openshift/NPM_VERSION_URL)
