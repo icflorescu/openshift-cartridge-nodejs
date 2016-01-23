@@ -1,7 +1,9 @@
 #!/bin/bash
 
 function update_nodejs {
-  if [ -f "$OPENSHIFT_REPO_DIR/.openshift/NODE_VERSION_URL" ]; then
+  if [ -n "$NODE_VERSION_URL" ]; then
+    local VERSION_URL=$NODE_VERSION_URL
+  elif [ -f "$OPENSHIFT_REPO_DIR/.openshift/NODE_VERSION_URL" ]; then
     local VERSION_URL=$(cat $OPENSHIFT_REPO_DIR/.openshift/NODE_VERSION_URL)
   else
     local VERSION_URL="https://semver.io/node/stable"
