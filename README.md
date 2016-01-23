@@ -4,26 +4,6 @@
 
 This is a custom Node.js cartridge that **takes care of auto-updating the Node.js and NPM versions** on each build.
 
-## Customizing the Node.js and npm versions
-
-### Node.js
-
-By default, the Node.js version is determined by querying [semver.io/node/stable](https://semver.io/node/stable).
-
-A different URL can be specified either via `NODE_VERSION_URL` environment variable or by setting `.openshift/NODE_VERSION_URL` marker in your application repository. For instance, you'd get the **latest 0.10.x** (0.10.41 as of Jan 24, 2015) by putting this in `NODE_VERSION_URL` variable or `.openshift/NODE_VERSION_URL` marker:
-
-    https://semver.io/node/resolve/0.10
-
-If you're using a non-default Node.js version and you're planning to **scale the application across multiple gears**, you **must use the environment variable** (learn [here](https://github.com/icflorescu/openshift-cartridge-nodejs/issues/23) why).
-
-### npm
-
-By default, the npm version is determined by running `npm view npm version`.
-
-A different npm version can be specified either via `NPM_VERSION_URL` environment variable or by setting `.openshift/NPM_VERSION_URL` marker in your application repository. For instance, you'd get the latest 2.x (2.14.16 as of Jan 24, 2016) by putting this in `NPM_VERSION_URL` variable or `.openshift/NPM_VERSION_URL` marker:
-
-    https://semver.io/npm/resolve/2
-
 ## Why
 
 Because the standard OpenShift cartridge never gets updated to the latest Node.js version.
@@ -47,6 +27,26 @@ Assuming you have `rhc` installed (see [here](https://developers.openshift.com/e
 ...where `appname` is the name of your application.
 
 See output of `rhc app create --help` for information on additional options.
+
+## Customizing the Node.js and npm versions
+
+### Node.js
+
+By default, the Node.js version is determined by querying [semver.io/node/stable](https://semver.io/node/stable).
+
+A different URL can be specified either via `NODE_VERSION_URL` environment variable or by setting `.openshift/NODE_VERSION_URL` marker in your application repository. For instance, you'd get the **latest 0.10.x** (0.10.41 as of Jan 24, 2015) by putting this in `NODE_VERSION_URL` variable or `.openshift/NODE_VERSION_URL` marker:
+
+    https://semver.io/node/resolve/0.10
+
+If you're using a non-default Node.js version and you're planning to **scale the application across multiple gears**, you **must use the environment variable** (learn [here](https://github.com/icflorescu/openshift-cartridge-nodejs/issues/23) why).
+
+### npm
+
+By default, the npm version is determined by running `npm view npm version`.
+
+A different npm version can be specified either via `NPM_VERSION_URL` environment variable or by setting `.openshift/NPM_VERSION_URL` marker in your application repository. For instance, you'd get the latest 2.x (2.14.16 as of Jan 24, 2016) by putting this in `NPM_VERSION_URL` variable or `.openshift/NPM_VERSION_URL` marker:
+
+    https://semver.io/npm/resolve/2
 
 ## Features
 
