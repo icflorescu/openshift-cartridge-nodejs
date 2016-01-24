@@ -28,7 +28,10 @@ if (cluster.isMaster) {
       process.on(signal, function () {
         console.log(`Got ${signal}, stopping workers...`);
         stopping = true;
-        cluster.disconnect();
+        cluster.disconnect(function () {
+          console.log('All workers stopped, exiting.');
+          process.exit(0);
+        });
       });
     });
   }
