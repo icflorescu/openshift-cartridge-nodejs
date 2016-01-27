@@ -19,7 +19,7 @@ function update_nodejs {
 
   # Update Node.js if necessary
 
-  which node 2>&1 # update if node is not avalible
+  which node >/dev/null 2>&1 # update if node is not avalible
   if [ $? != 0 ] || [ $(node --version) != ${LATEST} ]; then
     # Download
     if ! curl -L -o ${OPENSHIFT_DATA_DIR}tmp.tgz $NODE_URL; then
