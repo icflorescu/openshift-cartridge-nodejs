@@ -1,6 +1,6 @@
 # Custom Node.js cartridge for OpenShift
 
-![nodejs-openshift](https://cloud.githubusercontent.com/assets/581999/12095822/1323a858-b31a-11e5-9ce7-aa47695f10d0.png)
+![nodejs-openshift](https://cloud.githubusercontent.com/assets/581999/13374525/d25b0a28-dd8f-11e5-86cd-a49b3e698aa5.png)
 
 This is a custom Node.js cartridge that **takes care of auto-updating the Node.js and NPM versions** on each build.
 
