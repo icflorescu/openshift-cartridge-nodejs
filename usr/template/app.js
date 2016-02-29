@@ -10,8 +10,10 @@ let server = http.createServer(function (req, res) {
   if (url == '/') {
     url += 'index.html';
   }
-  // Your application HAS to respond to GET /health with status 200
-  // for OpenShift health monitoring
+
+  // IMPORTANT: Your application HAS to respond to GET /health with status 200
+  //            for OpenShift health monitoring
+
   if (url == '/health') {
     res.writeHead(200);
     res.end();
