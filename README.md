@@ -12,19 +12,43 @@ Because the standard OpenShift cartridge never gets updated to the latest Node.j
 
 When you need a quick and unsofisticated solution to run your application on the latest Node.js version.
 
-## How to ([web console](https://openshift.redhat.com/app/console/applications))
+## How to
+
+### The lazy way
+
+Just click here:
+
+[![Create Node.js app on OpenShift](https://launch-shifter.rhcloud.com/launch/Create app on.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml&name=appname)
+
+### Using [web console](https://openshift.redhat.com/app/console/applications)
 
 Go to [Choose a type of application](https://openshift.redhat.com/app/console/application_types) in your OpenShift Online account, paste the URL below into "Code Anything" textbox at the bottom of the page, click "Next", then set your public URL and click "Create Application".
 
-    http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs
+    https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml
 
-## How to (command line)
+### Using command line
 
 Assuming you have `rhc` installed (see [here](https://developers.openshift.com/en/managing-client-tools.html)), run:
 
-    rhc app create -t http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs -a appname
+    rhc app create appname https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml
 
 ...where `appname` is the name of your application.
+
+If you want to create the app with **your own source code** instead of the provided application template, run:
+
+    rhc app create appname \
+      https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml \
+      --from-code=https://github.com/you/your-repo.git
+
+...where `https://github.com/you/your-repo.git` is your application repository URL.
+
+Make sure your app has the appropriate `start` entry in `package.json` (see note below).
+
+You can also create an app based on multiple cartridges. For instance, assuming you'd want to include this [custom MongoDB cartridge](https://github.com/icflorescu/openshift-cartridge-mongodb) as well, run:
+
+    rhc app create appname \
+      https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml \
+      https://raw.githubusercontent.com/icflorescu/openshift-cartridge-mongodb/master/metadata/manifest.yml
 
 See output of `rhc app create --help` for information on additional options.
 
@@ -67,7 +91,7 @@ A different npm version can be specified either via `NPM_VERSION_URL` environmen
 **Q**: I'm getting the error *Cannot download, must be smaller than 20480 bytes* while trying to deploy the cartridge to OpenShift. What am I doing wrong?
 
 **A**: You're probably trying to use the URL `https://github.com/icflorescu/openshift-cartridge-nodejs` instead of
-`http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs`. A common mistake for people not paying sufficient attention while trying to use a custom cartridge for the first time.
+`https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml`. A common mistake for people not paying sufficient attention while trying to use a custom cartridge for the first time.
 
 ---
 
