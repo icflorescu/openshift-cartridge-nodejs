@@ -85,6 +85,7 @@ A different npm version can be specified either via `NPM_VERSION_URL` environmen
 - The cartridge emulates the execution of `npm start` to start your application, so **make sure your application entrypoint is defined in your start script of your `package.json` file**. See [`package.json` in the provided template](https://github.com/icflorescu/openshift-cartridge-nodejs/blob/master/usr/template/package.json) or read the [`npm` docs](https://docs.npmjs.com/cli/start) for more information.
 - Due to OpenShift's outdated gcc (**4.4.7** as of Jan 4 2016), **native modules (such as [pg-native](https://github.com/brianc/node-pg-native)) won't compile on Node.js > 4.x. They'll only work on Node.js 0.10 and 0.12**. See [this issue](https://github.com/icflorescu/openshift-cartridge-nodejs/issues/12) for more info.
 - Upon cartridge initialization, the Node.js binary package is downloaded and installed, which **may take a while**, depending on OpenShift server and network load. 2 - 3 minutes is quite often, but 5 - 10 minutes is not uncommon, especially for scalable multi-gear setups (if you specified "Scale with web traffic").
+- The cartridge automatically installs the npm `dependencies` as needed on each build/deploy event; `devDependencies` are not installed (see an in-depth discussion [here](https://github.com/icflorescu/openshift-cartridge-nodejs/pull/20#issuecomment-190866662)).
 
 ## FAQ
 
