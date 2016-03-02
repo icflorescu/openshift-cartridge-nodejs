@@ -4,10 +4,10 @@
   <style>
     info {
       display: block;
-      max-width: 700px;
+      max-width: 640px;
       margin: 10px auto;
       font-family: 'Ubuntu Mono', monospace;
-      border-radius: 10px;
+      border-radius: 5px;
       background: #1D1F21;
       box-shadow: 0 0 10px rgba(0, 0, 0, .8) inset;
       overflow-x: auto;

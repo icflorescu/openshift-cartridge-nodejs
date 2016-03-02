@@ -1,5 +1,5 @@
 body {
-  font: 20px/1.5 'Roboto', sans-serif;
+  font: 20px/1.5 'Ubuntu', sans-serif;
   color: #F0E7D5;
   background: #555 url('asphalt.png');
   text-align: center;
@@ -7,7 +7,7 @@ body {
 }
 
 header, footer {
-  font-size: 14px;
+  font-size: 18px;
   padding: 0 20px;
 }
 
@@ -51,7 +51,7 @@ a:hover {
   width: 50%;
   max-width: 400px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px dashed #555;
 }
 
@@ -75,10 +75,13 @@ a:hover {
 
 /* Play nice with small devices */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 300px) {
   .fork {
     display: none;
   }
+}
+
+@media screen and (max-width: 480px) {
   main {
     text-align: left;
   }

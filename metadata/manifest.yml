@@ -7,7 +7,7 @@ Vendor: www.nodejs.org
 Website: http://www.nodejs.org/
 Display-Name: Node.js Auto-Updating
 Cartridge-Short-Name: NODEJS
-Cartridge-Version: '2.0.5'
+Cartridge-Version: '2.0.6'
 Cartridge-Vendor: icflorescu
 Source-Url: https://github.com/icflorescu/openshift-cartridge-nodejs.git
 Categories:

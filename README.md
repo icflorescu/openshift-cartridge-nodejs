@@ -20,6 +20,8 @@ Just click here:
 
 [![Create Node.js app on OpenShift](https://launch-shifter.rhcloud.com/launch/Create app on.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml&name=appname)
 
+…or deploy from the [OpenShift Hub Quickstart](https://hub.openshift.com/quickstarts/243-node-js-latest).
+
 ### Using [web console](https://openshift.redhat.com/app/console/applications)
 
 Go to [Choose a type of application](https://openshift.redhat.com/app/console/application_types) in your OpenShift Online account, paste the URL below into "Code Anything" textbox at the bottom of the page, click "Next", then set your public URL and click "Create Application".
@@ -32,7 +34,7 @@ Assuming you have `rhc` installed (see [here](https://developers.openshift.com/e
 
     rhc app create appname https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml
 
-...where `appname` is the name of your application.
+…where `appname` is the name of your application.
 
 If you want to create the app with **your own source code** instead of the provided application template, run:
 
@@ -40,7 +42,7 @@ If you want to create the app with **your own source code** instead of the provi
       https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml \
       --from-code=https://github.com/you/your-repo.git
 
-...where `https://github.com/you/your-repo.git` is your application repository URL.
+…where `https://github.com/you/your-repo.git` is your application repository URL.
 
 Make sure your app has the appropriate `start` entry in `package.json` (see note below).
 
