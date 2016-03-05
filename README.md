@@ -104,6 +104,15 @@ A different npm version can be specified either via `NPM_VERSION_URL` environmen
 
 ---
 
+**Q**: How do I **disable the auto-update** feature? I want to lock my application to specific Node.js and npm versions.
+
+**A**: Just set the necessary environment variables or markers to the versions you need. For instance, you can lock your application to Node.js 4.3.2 and npm 3.6.0 by setting:
+
+    NODE_VERSION_URL=https://semver.io/node/resolve/4.3.2
+    NPM_VERSION_URL=https://semver.io/npm/resolve/3.6.0
+
+---
+
 **Q**: Sometimes, `git push` fails with:
 
     remote: CLIENT_MESSAGE: Stopping Node.js application...
