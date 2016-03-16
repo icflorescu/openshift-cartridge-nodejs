@@ -15,7 +15,9 @@ function is_running() {
 
 function pre-repo-archive() {
   if [ -d ${OPENSHIFT_REPO_DIR}node_modules ]; then
-    mv -f ${OPENSHIFT_REPO_DIR}node_modules ${TMP}
+    rm -rf ${TMP}node_modules
+    cp -pRf ${OPENSHIFT_REPO_DIR}node_modules ${TMP}
+    rm -rf ${OPENSHIFT_REPO_DIR}node_modules
   fi
 }
 
@@ -24,7 +26,9 @@ function build() {
   local INIT_DIR=`pwd`
   cd ${OPENSHIFT_REPO_DIR}
   if [ -d ${TMP}node_modules ]; then
-    mv -f ${TMP}node_modules ./
+    rm -rf ./node_modules
+    cp -pRf ${TMP}node_modules ./
+    rm -rf ${TMP}node_modules
   fi
   npm prune --production
   npm i --production
@@ -90,9 +94,7 @@ function status() {
 
 function tidy() {
   shopt -s dotglob
-  client_message "Emptying logs in ${OPENSHIFT_LOG_DIR}..."
   rm -rf ${OPENSHIFT_LOG_DIR}/*.log*
-  client_message 'Done.'
 }
 
 case ${1} in
