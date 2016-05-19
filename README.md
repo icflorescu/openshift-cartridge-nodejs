@@ -100,7 +100,7 @@ A different npm version can be specified either via `NPM_VERSION_URL` environmen
 
 **Q**: The latest Node.js version is 5.3.0, but the cartridge installs 5.1.1. Isn't it supposed to install the **latest**?
 
-**A**: By default, the Node.js version is determined by querying [semver.io/node/stable](https://semver.io/node/stable) (see the top of this README). For reasons which escape me, semver.io is not updating **instantly** the latest version, but **you can** force the cartridge to install it by putting, for instance, `https://semver.io/node/resolve/5.3.x` in `.openshift/NODE_VERSION_URL`.
+**A**: By default, the Node.js version is determined by querying [semver.io/node/stable](https://semver.io/node/stable) (see the top of this README). For reasons which escape me, semver.io is not updating **instantly** the latest version, but **you can** force the cartridge to install it by putting, for instance, `https://semver.io/node/resolve/5.3.x` in `NODE_VERSION_URL` environment variable or `.openshift/NODE_VERSION_URL` file.
 
 ---
 
