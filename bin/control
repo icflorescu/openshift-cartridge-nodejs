@@ -94,7 +94,9 @@ function status() {
 
 function tidy() {
   shopt -s dotglob
+  client_message "Emptying logs in ${OPENSHIFT_LOG_DIR}..."
   rm -rf ${OPENSHIFT_LOG_DIR}/*.log*
+  client_message 'Done tidying up Node.js cartridge.'
 }
 
 case ${1} in
