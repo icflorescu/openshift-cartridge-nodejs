@@ -129,6 +129,12 @@ What's wrong?
 
 **A**: Your application may take longer than 60 seconds to shutdown. Try to `git push` again until it works.
 
+---
+
+**Q**: I'm trying to use `engines` in `package.json` to specify `node` and `npm` versions, but it doesn't work. What do I have to do?
+
+**A**: See [@Spown](https://github.com/Spown)'s comment [here](https://github.com/icflorescu/openshift-cartridge-nodejs/issues/25#issuecomment-222342147).
+
 ## Related
 
 Since you're here, chances are you might also be interested in this [custom MongoDB cartridge](https://github.com/icflorescu/openshift-cartridge-mongodb).
