@@ -144,7 +144,7 @@ What's wrong?
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP);
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || '3000');
 var server = http.createServer(app);
-server.listen(process.env.OPENSHIFT_NODEJS_IP, process.env.OPENSHIFT_NODEJS_PORT);
+server.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);
 ```
 
 ## Related
