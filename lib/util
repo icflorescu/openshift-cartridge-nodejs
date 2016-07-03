@@ -6,7 +6,7 @@ function update_nodejs {
   elif [ -f "$OPENSHIFT_REPO_DIR/.openshift/NODE_VERSION_URL" ]; then
     local VERSION_URL=$(cat $OPENSHIFT_REPO_DIR/.openshift/NODE_VERSION_URL)
   else
-    local VERSION_URL="https://semver.io/node/stable"
+    local VERSION_URL="https://semver.io/node/unstable"
   fi
 
   local LATEST="v$(curl --silent --max-time 5 ${VERSION_URL})"

@@ -10,7 +10,7 @@ Because the standard OpenShift cartridge never gets updated to the latest Node.j
 
 ## When to use
 
-When you need a quick and unsofisticated solution to run your application on the latest Node.js version.
+When you need a quick and unsophisticated solution to run your application on the latest Node.js version.
 
 ## How to
 
@@ -58,7 +58,7 @@ See output of `rhc app create --help` for information on additional options.
 
 ### Node.js
 
-By default, the Node.js version is determined by querying [semver.io/node/stable](https://semver.io/node/stable).
+By default, the Node.js version is determined by querying [semver.io/node/unstable](https://semver.io/node/unstable).
 
 A different URL can be specified either via `NODE_VERSION_URL` environment variable or by setting `.openshift/NODE_VERSION_URL` marker in your application repository. For instance, you'd get the **latest 0.10.x** (0.10.41 as of Jan 24, 2015) by putting this in `NODE_VERSION_URL` variable or `.openshift/NODE_VERSION_URL` marker:
 
@@ -100,7 +100,7 @@ A different npm version can be specified either via `NPM_VERSION_URL` environmen
 
 **Q**: The latest Node.js version is 5.3.0, but the cartridge installs 5.1.1. Isn't it supposed to install the **latest**?
 
-**A**: By default, the Node.js version is determined by querying [semver.io/node/stable](https://semver.io/node/stable) (see the top of this README). For reasons which escape me, semver.io is not updating **instantly** the latest version, but **you can** force the cartridge to install it by putting, for instance, `https://semver.io/node/resolve/5.3.x` in `NODE_VERSION_URL` environment variable or `.openshift/NODE_VERSION_URL` file.
+**A**: By default, the Node.js version is determined by querying [semver.io/node/unstable](https://semver.io/node/unstable) (see the top of this README). For reasons which escape me, semver.io is not updating **instantly** the latest version, but **you can** force the cartridge to install it by putting, for instance, `https://semver.io/node/resolve/5.3.x` in `NODE_VERSION_URL` environment variable or `.openshift/NODE_VERSION_URL` file.
 
 ---
 
