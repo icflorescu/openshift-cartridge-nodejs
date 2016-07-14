@@ -4,6 +4,7 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 source $HOME/nodejs/lib/util
 
 START_COMMAND=$(node -e "var p = require('$OPENSHIFT_REPO_DIR/package.json'); console.log(p.scripts.start);")
+STOP_COMMAND=$(node -e "var p = require('$OPENSHIFT_REPO_DIR/package.json'); console.log(p.scripts.stop);")
 
 function is_running() {
   if [ ! -z "$(ps -ef | grep "$START_COMMAND" | grep -v grep)" ]; then
@@ -64,7 +65,14 @@ function stop() {
     client_result 'Application is already stopped.'
   else
     client_message 'Stopping Node.js application...'
-    kill $(ps -ef | grep "$START_COMMAND" | grep -v grep | awk '{ print $2 }') > /dev/null 2>&1
+    if [[ ! -z "$STOP_COMMAND"  ]]; then
+        local INIT_DIR=`pwd`
+        cd ${OPENSHIFT_REPO_DIR}
+        $STOP_COMMAND > /dev/null 2>&1
+        cd ${INIT_DIR}
+    else
+        kill $(ps -ef | grep "$START_COMMAND" | grep -v grep | awk '{ print $2  }') > /dev/null 2>&1
+    fi
     i=0
     while is_running && [ $i -lt 60 ]; do
       sleep 1
