@@ -3,8 +3,8 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 source $HOME/nodejs/lib/util
 
-START_COMMAND=$(node -e "var p = require('$OPENSHIFT_REPO_DIR/package.json'); console.log(p.scripts ? p.scripts.start : '');")
-STOP_COMMAND=$(node -e "var p = require('$OPENSHIFT_REPO_DIR/package.json'); console.log(p.scripts ? p.scripts.stop : '');")
+START_COMMAND=$(node -e "var p = require('$OPENSHIFT_REPO_DIR/package.json'); console.log(p.scripts.start);")
+STOP_COMMAND=$(node -e "var p = require('$OPENSHIFT_REPO_DIR/package.json'); console.log(p.scripts.stop || '');")
 
 function is_running() {
   if [ ! -z "$(ps -ef | grep "$START_COMMAND" | grep -v grep)" ]; then
