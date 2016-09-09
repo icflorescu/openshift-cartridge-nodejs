@@ -58,11 +58,11 @@ See output of `rhc app create --help` for information on additional options.
 
 ### Node.js
 
-By default, the Node.js version is determined by querying [semver.io/node/unstable](https://semver.io/node/unstable).
+By default, the Node.js version is determined by querying [semver.plugable.info/node/current](https://semver.plugable.info/node/current).
 
 A different URL can be specified either via `NODE_VERSION_URL` environment variable or by setting `.openshift/NODE_VERSION_URL` marker in your application repository. For instance, you'd get the **latest 0.10.x** (0.10.41 as of Jan 24, 2015) by putting this in `NODE_VERSION_URL` variable or `.openshift/NODE_VERSION_URL` marker:
 
-    https://semver.io/node/resolve/0.10
+    https://semver.plugable.info/node/resolve/5.12
 
 If you're using a non-default Node.js version and you're planning to **scale the application across multiple gears**, you **must use the environment variable** (learn [here](https://github.com/icflorescu/openshift-cartridge-nodejs/issues/23) why).
 
@@ -72,7 +72,7 @@ By default, the npm version is determined by running `npm view npm version`.
 
 A different npm version can be specified either via `NPM_VERSION_URL` environment variable or by setting `.openshift/NPM_VERSION_URL` marker in your application repository. For instance, you'd get the latest 2.x (2.14.16 as of Jan 24, 2016) by putting this in `NPM_VERSION_URL` variable or `.openshift/NPM_VERSION_URL` marker:
 
-    https://semver.io/npm/resolve/2
+    https://semver.plugable.info/npm/resolve/2
 
 ## Features
 
@@ -99,9 +99,9 @@ A different npm version can be specified either via `NPM_VERSION_URL` environmen
 
 ---
 
-**Q**: The latest Node.js version is 5.3.0, but the cartridge installs 5.1.1. Isn't it supposed to install the **latest**?
+**Q**: Can I use LTS version of node.js instead of the latest?
 
-**A**: By default, the Node.js version is determined by querying [semver.io/node/unstable](https://semver.io/node/unstable) (see the top of this README). For reasons which escape me, semver.io is not updating **instantly** the latest version, but **you can** force the cartridge to install it by putting, for instance, `https://semver.io/node/resolve/5.3.x` in `NODE_VERSION_URL` environment variable or `.openshift/NODE_VERSION_URL` file.
+**A**: By default, the Node.js version is determined by querying [semver.plugable.info/node/current](https://semver.plugable.info/node/current) (see the top of this README). Instead you can change to the LTS version by setting the `NODE_VERSION_URL` environment variable or `.openshift/NODE_VERSION_URL` marker to  `https://semver.plugable.info/node/lts/`. This defaults to the latest available LTS version.
 
 ---
 
@@ -109,8 +109,8 @@ A different npm version can be specified either via `NPM_VERSION_URL` environmen
 
 **A**: Just set the necessary environment variables or markers to the versions you need. For instance, you can lock your application to Node.js 4.3.2 and npm 3.6.0 by setting:
 
-    NODE_VERSION_URL=https://semver.io/node/resolve/4.3.2
-    NPM_VERSION_URL=https://semver.io/npm/resolve/3.6.0
+    NODE_VERSION_URL=https://semver.plugable.info/node/resolve/4.3.2
+    NPM_VERSION_URL=https://semver.plugable.info/npm/resolve/3.6.0
 
 ---
 
