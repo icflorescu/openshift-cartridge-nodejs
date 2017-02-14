@@ -28,7 +28,9 @@ let server = http.createServer(function (req, res) {
         res.end('Not found');
       } else {
         let ext = path.extname(url).slice(1);
-        res.setHeader('Content-Type', contentTypes[ext]);
+        if (contentTypes[ext]) {
+          res.setHeader('Content-Type', contentTypes[ext]);
+        }
         if (ext === 'html') {
           res.setHeader('Cache-Control', 'no-cache, no-store');
         }
