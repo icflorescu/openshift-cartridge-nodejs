@@ -18,7 +18,7 @@ When you need a quick and unsophisticated solution to run your application on th
 
 Just click here:
 
-[![Create Node.js app on OpenShift](https://launch-shifter.rhcloud.com/launch/Create app on.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml&name=appname)
+[![Create Node.js app on OpenShift](https://cloud.githubusercontent.com/assets/581999/24554921/f1f2d5dc-1637-11e7-9089-d14791458744.png)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml&name=appname)
 
 …or deploy from the [OpenShift Hub Quickstart](https://hub.openshift.com/quickstarts/243-node-js-latest).
 
