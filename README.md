@@ -136,6 +136,18 @@ What's wrong?
 
 **A**: See [@Spown](https://github.com/Spown)'s comment [here](https://github.com/icflorescu/openshift-cartridge-nodejs/issues/25#issuecomment-222342147).
 
+---
+
+**Q**: When running on open shift I get a 503 error.
+
+**A**: Make sure the the port and IP of your app are `process.env.OPENSHIFT_NODEJS_PORT || '3000'` and `process.env.OPENSHIFT_NODEJS_IP`, so it should look something like this:
+```javascript
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || '3000');
+var server = http.createServer(app);
+server.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);
+```
+
 ## Related
 
 Since you're here, chances are you might also be interested in this [custom MongoDB cartridge](https://github.com/icflorescu/openshift-cartridge-mongodb).
