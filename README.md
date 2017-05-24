@@ -12,6 +12,15 @@ Because the standard OpenShift cartridge never gets updated to the latest Node.j
 
 When you need a quick and unsophisticated solution to run your application on the latest Node.js version.
 
+## Note: Looking for (co-)maintainers
+
+A lot of people have been using this cartridge since the beginning of 2015.
+Thank you all for your PRs and moral support.
+
+However, since I'm not using OpenShift in my projects anymore, there's now little reason for me to maintain this repository as well as it probably deserves.
+
+So, if anyone is willing and ready to step up and become a maintainer, please don't hesitate to drop me a line!
+
 ## How to
 
 ### The lazy way
